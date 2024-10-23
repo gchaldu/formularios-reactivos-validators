@@ -28,8 +28,8 @@ export class UpdateProductComponent implements OnInit {
   productService = inject(ProductService)
 
   formProduct = this.fb.nonNullable.group({
-    nombre: ['', [Validators.required]],
-    precio: [0, [Validators.required]],
+    nombre: ['', [Validators.required, Validators.minLength(3)]],
+    precio: [0, [Validators.required, Validators.min(100)]],
     existencias: [0, [Validators.required]],
   })
 
@@ -52,6 +52,8 @@ export class UpdateProductComponent implements OnInit {
     )
   }
   updateProduct() {
+
+    if (this.formProduct.invalid) return
 
     const product = this.formProduct.getRawValue()
     this.productService.updateProduct(this.id, product).subscribe(
