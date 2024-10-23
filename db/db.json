@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "nombre": "Notebook 2024",
+      "precio": 1010,
+      "existencias": 10,
+      "id": "a5d5"
+    }
+  ]
+}
