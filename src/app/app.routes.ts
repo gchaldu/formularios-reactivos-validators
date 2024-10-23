@@ -4,6 +4,10 @@ import { UpdatePageComponent } from './product/pages/update-page/update-page.com
 
 export const routes: Routes = [
   {
+    path: '',
+    loadComponent: () => import('./pages/home-page/home-page.component').then(p => p.HomePageComponent)
+  },
+  {
     path: 'product',
     loadComponent: () => import('./product/pages/product-page/product-page.component').then(p => p.ProductPageComponent)
   },
@@ -13,6 +17,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'product'
+    redirectTo: ''
   }
 ];
